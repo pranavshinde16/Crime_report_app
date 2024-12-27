@@ -39,6 +39,7 @@ export function ReportForm({ onComplete }: ReportFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.files)
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -135,11 +136,10 @@ export function ReportForm({ onComplete }: ReportFormProps) {
           onClick={() =>
             setFormData((prev) => ({ ...prev, incidentType: "EMERGENCY" }))
           }
-          className={`p-6 rounded-2xl border-2 transition-all duration-200 ${
-            formData.incidentType === "EMERGENCY"
-              ? "bg-red-500/20 border-red-500 shadow-lg shadow-red-500/20"
-              : "bg-zinc-900/50 border-zinc-800 hover:bg-red-500/10 hover:border-red-500/50"
-          }`}
+          className={`p-6 rounded-2xl border-2 transition-all duration-200 ${formData.incidentType === "EMERGENCY"
+            ? "bg-red-500/20 border-red-500 shadow-lg shadow-red-500/20"
+            : "bg-zinc-900/50 border-zinc-800 hover:bg-red-500/10 hover:border-red-500/50"
+            }`}
         >
           <div className="flex flex-col items-center space-y-2">
             <svg
@@ -167,11 +167,10 @@ export function ReportForm({ onComplete }: ReportFormProps) {
           onClick={() =>
             setFormData((prev) => ({ ...prev, incidentType: "NON_EMERGENCY" }))
           }
-          className={`p-6 rounded-2xl border-2 transition-all duration-200 ${
-            formData.incidentType === "NON_EMERGENCY"
-              ? "bg-orange-500/20 border-orange-500 shadow-lg shadow-orange-500/20"
-              : "bg-zinc-900/50 border-zinc-800 hover:bg-orange-500/10 hover:border-orange-500/50"
-          }`}
+          className={`p-6 rounded-2xl border-2 transition-all duration-200 ${formData.incidentType === "NON_EMERGENCY"
+            ? "bg-orange-500/20 border-orange-500 shadow-lg shadow-orange-500/20"
+            : "bg-zinc-900/50 border-zinc-800 hover:bg-orange-500/10 hover:border-orange-500/50"
+            }`}
         >
           <div className="flex flex-col items-center space-y-2">
             <svg
