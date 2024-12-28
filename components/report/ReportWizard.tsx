@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ReportForm } from "./ReportForm";
+import ReportFormSubmission from "./ReportFormSubmission";
 
 export default function ReportWizard() {
   const [curretStep, setCurrentStep] = useState(1);
@@ -19,6 +20,7 @@ export default function ReportWizard() {
   return (
     <div className="rounded-2xl bg-zinc-900 p-8">
       {curretStep === 1 && <ReportForm onComplete={handleStepComplete} />}
+      {curretStep === 2 && <ReportFormSubmission data={reportData} onComplete={handleStepComplete} />}
     </div>
   );
 }

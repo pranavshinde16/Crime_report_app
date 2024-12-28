@@ -46,6 +46,8 @@ export function ReportForm({ onComplete }: ReportFormProps) {
     setIsAnalyzing(true);
 
     try {
+      // Base64 is a widely used method for encoding binary data, such as images, into ASCII text/string. This enables embedding binary data, such as images, directly into HTML without needing separate image files.
+      // For example: <img src="data:image/png;base64,iVBORw0KG..." />
       const base64 = await new Promise((resolve) => {
         const reader = new FileReader();
         reader.onloadend = () => resolve(reader.result);
