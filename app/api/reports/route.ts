@@ -16,13 +16,13 @@ export async function GET(req: Request) {
         const status = searchParams.get("status") as ReportStatus | null;
         const type = searchParams.get("type") as ReportType | null;
 
-        // Build the where clause based on filters
+        // where clause based on filters
         const where = {
             ...(status && { status }),
             ...(type && { type }),
         };
 
-        // Add timeout and retry logic
+        // Added timeout and retry logic
         const reports = await Promise.race([
             prisma.report.findMany({
                 where,

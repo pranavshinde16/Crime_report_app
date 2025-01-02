@@ -69,9 +69,9 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               <Link
                 className="hidden md:block text-sm text-zinc-400 hover:text-white transition-colors"
-                href="/contact"
+                href="/auth/signup"
               >
-                Contact
+                Sign up
               </Link>
               <button className="group flex h-9 items-center gap-2 rounded-full bg-red-500/10 pl-4 pr-5 text-sm font-medium text-red-500 ring-1 ring-inset ring-red-500/20 transition-all hover:bg-red-500/20">
                 <span className="h-1.5 w-1.5 rounded-full  bg-red-500 animate-pulse" />
