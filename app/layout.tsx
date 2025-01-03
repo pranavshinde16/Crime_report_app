@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
-// import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,12 +25,12 @@ export default function RootLayout({
             <div className="absolute inset-0 h-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.03),transparent_50%)]" />
             <div className="absolute inset-0 h-full bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.04),transparent_70%)]" />
           </div>
-          <Navbar />
-          <main className="pt-16">
-            <Providers>
+          <Providers>
+            <Navbar />
+            <main className="pt-16">
               {children}
-            </Providers>
-          </main>
+            </main>
+          </Providers>
         </div>
       </body>
     </html>

@@ -13,6 +13,7 @@ export default function Dashboard() {
     const [filter, setFilter] = useState<ReportStatus | "ALL">("ALL");
     const [typeFilter, setTypeFilter] = useState<ReportType | "ALL">("ALL");
     const [isLoading, setIsLoading] = useState(true);
+    const [isSigningOut, setIsSigningOut] = useState(false);  // Add this line
     // const router = useRouter();
 
     useEffect(() => {
@@ -24,9 +25,10 @@ export default function Dashboard() {
         try {
             const response = await fetch("/api/reports");
             const data = await response.json();
-            setReports(data);
+            setReports(Array.isArray(data) ? data : []);
         } catch (error) {
             console.error("Error fetching reports:", error);
+            setReports([])
         } finally {
             setIsLoading(false);
         }
@@ -53,11 +55,11 @@ export default function Dashboard() {
         }
     };
 
-    const filteredReports = reports.filter((report) => {
+    const filteredReports = Array.isArray(reports) ? reports.filter((report) => {
         const statusMatch = filter === "ALL" || report.status === filter;
         const typeMatch = typeFilter === "ALL" || report.type === typeFilter;
         return statusMatch && typeMatch;
-    });
+    }) : [];
 
     const getStatusColor = (status: ReportStatus) => {
         const colors = {
@@ -70,7 +72,7 @@ export default function Dashboard() {
         return colors[status];
     };
 
-    if (isLoading) {
+    if (isLoading || isSigningOut) {
         return (
             <div className="flex items-center justify-center min-h-screen bg-black">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
@@ -78,10 +80,9 @@ export default function Dashboard() {
         );
     }
 
-    const handleSignOut = async () => {
-        setIsLoading(true)
-        await signOut({ callbackUrl: "/" }); // Redirect to home page
-        setIsLoading(false)
+    const handleSignOut = () => {
+        setIsSigningOut(true)
+        signOut({ callbackUrl: "/auth/signin" });
     };
 
     return (

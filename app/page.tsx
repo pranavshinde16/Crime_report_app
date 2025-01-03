@@ -4,7 +4,7 @@ import { FeatureList, Stats } from "@/const/HomeConstants";
 
 export default function Home() {
   return (
-    <main className="relative px-6 pt-32">
+    <main className="relative px-6 pt-20">
       <div className="mx-auto max-w-5xl">
         {/* Hero Section */}
         <div className="flex flex-col items-center text-center">
@@ -38,7 +38,7 @@ export default function Home() {
             anonymous.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 items-center justify-center">
             <Link href={"/submit-report"}>
               <button className="group relative flex h-12 items-center justify-center gap-2 rounded-xl bg-sky-500 px-8 text-sm font-medium text-white transition-all hover:bg-sky-400">
                 Make Anonymous Report
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
 
         {/* Features Grid */}
-        <div className="mt-40 grid gap-6 sm:grid-cols-3">
+        <div className="mt-28 grid gap-6 sm:grid-cols-3">
           {FeatureList.map((feature, i) => (
             <div
               key={i}
@@ -89,7 +89,7 @@ export default function Home() {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-40 rounded-2xl bg-zinc-900 p-8">
+        <div className="mt-28 rounded-2xl bg-zinc-900 p-8">
           <div className="grid gap-y-8 sm:grid-cols-3">
             {Stats.map((stat, i) => (
               <div key={i} className="text-center">
@@ -103,7 +103,7 @@ export default function Home() {
         </div>
 
         {/* Trust Badge */}
-        <div className="mt-40 mb-20 flex justify-center">
+        <div className="md:mt-28 pb-5 mt-12 flex justify-center">
           <div className="inline-flex items-center gap-3 rounded-full bg-zinc-900 px-5 py-2 text-sm text-zinc-400">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             Trusted by Law Enforcement Nationwide
