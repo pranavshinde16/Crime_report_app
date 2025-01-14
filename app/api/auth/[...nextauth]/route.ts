@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
 
 const handler = NextAuth({
-    adapter: PrismaAdapter(prisma),
+    // adapter: PrismaAdapter(prisma),
     providers: [
         CredentialsProvider({
             name: "Credentials",
