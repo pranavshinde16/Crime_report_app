@@ -63,7 +63,7 @@ export default function Navbar() {
                 How it works
               </Link>
               <Link
-                href="/submit-report"
+                href="/resources"
                 className="text-sm text-zinc-400 hover:text-white transition-colors"
               >
                 Resources
