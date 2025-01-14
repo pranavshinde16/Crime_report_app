@@ -47,12 +47,14 @@ export const authOptions: AuthOptions = {
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
+                // @ts-ignore
                 token.role = user.role;
             }
             return token;
         },
         async session({ session, token }) {
             if (session?.user) {
+                // @ts-ignore
                 session.user.role = token.role;
             }
             return session;
