@@ -1,4 +1,4 @@
-import { PhoneCall, BookOpen, Users, Heart, Shield } from "lucide-react";
+import { PhoneCall, Globe, BookOpen, Users, Heart, Shield } from "lucide-react";
 
 export default function ResourcesPage() {
   const resources = [
@@ -50,7 +50,7 @@ export default function ResourcesPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-12 pb-16">
+    <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight text-white mb-4">
@@ -58,11 +58,11 @@ export default function ResourcesPage() {
           </h1>
           <p className="text-zinc-400">
             Access helpful resources, support services, and information.
-            Remember, you're not alone.
+            Remember, you are not alone.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {resources.map((resource, index) => (
             <div 
               key={index} 
@@ -95,6 +95,13 @@ export default function ResourcesPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 text-red-500 text-sm">
+            <Heart className="w-4 h-4" />
+            <span>If you are in immediate danger, please call 911</span>
+          </div>
         </div>
       </div>
     </div>
